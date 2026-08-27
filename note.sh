@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Grundlegende Setup-Variablen (Für Commit: "Add project structure")
+DB_DIR=".notes/db"
+mkdir -p "$DB_DIR"
+
+COMMAND=$1
+
+if [ "$COMMAND" == "add" ]; then
+    # Für Commit: "Implement note add"
+    CONTENT="${@:2}"
+    if [ -z "$CONTENT" ]; then
+        echo "Bitte Text eingeben. Beispiel: ./note.sh add Meine Notiz"
+        exit 1
+    fi
+    # Erstellt einen SHA-Hash aus dem Inhalt
+    HASH=$(echo -n "$CONTENT" | sha1sum | awk '{print $1}')
+    echo "$CONTENT" > "$DB_DIR/$HASH"
+    echo "Notiz gespeichert unter Hash: $HASH"
+
+else
+    echo "Verwendung: ./note.sh {add|list|delete} [Text oder Hash]"
+fi
