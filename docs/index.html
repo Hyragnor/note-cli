@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-Cli</title>
+    <style>
+        :root {
+            --prime-color: rgb(18, 42, 255);
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .main-layout {
+            padding: 0.5em;
+            display: grid;
+            grid-template-rows: 1fr 4fr;
+        }
+
+        .functions {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(4em, 1fr));
+            height: 100%;
+            gap: 1em;
+        }
+
+        .function {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5em;
+            border: 0.05em solid var(--prime-color, rgb(18, 42, 255));
+            border-radius: 1em;
+            background-color: color-mix(in srgb, var(--prime-color, rgb(18, 42, 255)) 10%, transparent);
+            box-shadow: 0 0 2px var(--prime-color);
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        header {
+            background: rgb(195, 195, 195);
+            border-bottom: solid 0.05em grey;
+
+            & h1 {
+                margin: 0;
+                padding: 0.25em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Note-CLI</h1>
+    </header>
+    <section class="main-layout">
+        <div class="functions">
+            <div class="function">
+                <h3>Add note</h3>
+                <p class="usage">
+                    Add a new note
+                </p>
+            </div>
+            <div class="function">
+                <h3>Add list</h3>
+                <p class="usage">
+                    Show all notes
+                </p>
+            </div>
+            <div class="function">
+                <h3>Add delete</h3>
+                <p class="usage">
+                    Delete the note with the given hash
+                </p>
+            </div>
+        </div>
+        <div class="description">
+
+        </div>
+    </section>
+</body>
+
+</html>
