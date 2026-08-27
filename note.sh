@@ -18,6 +18,11 @@ if [ "$COMMAND" == "add" ]; then
     echo "$CONTENT" > "$DB_DIR/$HASH"
     echo "Notiz gespeichert unter Hash: $HASH"
 
+elif [ "$COMMAND" == "list" ]; then
+    # Für Commit: "Implement note list"
+    echo "Gespeicherte Notizen (Hashes):"
+    ls -1 "$DB_DIR" 2>/dev/null || echo "Keine Notizen gefunden."
+
 else
     echo "Verwendung: ./note.sh {add|list|delete} [Text oder Hash]"
 fi
