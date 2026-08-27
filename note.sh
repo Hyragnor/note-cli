@@ -23,6 +23,16 @@ elif [ "$COMMAND" == "list" ]; then
     echo "Gespeicherte Notizen (Hashes):"
     ls -1 "$DB_DIR" 2>/dev/null || echo "Keine Notizen gefunden."
 
+elif [ "$COMMAND" == "delete" ]; then
+    # Für Branch: feature/delete (Commit: "Implement note delete")
+    HASH=$2
+    if [ -z "$HASH" ]; then
+        echo "Bitte Hash angeben. Beispiel: ./note.sh delete <hash>"
+        exit 1
+    fi
+    rm -f "$DB_DIR/$HASH"
+    echo "Notiz $HASH gelöscht."
+
 else
     echo "Verwendung: ./note.sh {add|list|delete} [Text oder Hash]"
 fi
